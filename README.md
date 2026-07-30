@@ -53,8 +53,8 @@ Responsibilities
 - User Registration
 - Login
 - JWT Token Generation
-- Role-Based Authentication
-- Password Encryption
+- Role-Based Authentication - yet to implement
+- Password Encryption - yet to implement
 
 Technology
 
@@ -70,9 +70,9 @@ Technology
 Responsibilities
 
 - Employee CRUD
-- Validation
-- Pagination
-- Exception Handling
+- Validation  - yet to implement
+- Pagination  - yet to implement
+- Exception Handling  - yet to implement
 
 Technology
 
