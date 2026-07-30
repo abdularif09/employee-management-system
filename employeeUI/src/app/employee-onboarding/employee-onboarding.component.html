@@ -1,0 +1,216 @@
+<form class="container mt-2">
+
+    <div class="text-center mb-2">
+        <hr>
+        <h3><strong>Employee Onboarding</strong></h3>
+        <hr>
+    </div>
+
+    <!-- Employee Information -->
+    <h5 class="mb-3"><strong>Employee Information</strong></h5>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label>Employee Name</label>
+            <input class="form-control"
+                   name="ename"
+                   [(ngModel)]="employee.ename"
+                   placeholder="Enter Employee Name">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Email</label>
+            <input class="form-control"
+                   name="Email"
+                   [(ngModel)]="employee.Email"
+                   placeholder="Enter Email">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Mobile Number</label>
+            <input class="form-control"
+                   name="MobileNumber"
+                   [(ngModel)]="employee.MobileNumber"
+                   placeholder="Enter Mobile Number">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Gender</label>
+            <input class="form-control"
+                   name="Gender"
+                   [(ngModel)]="employee.Gender"
+                   placeholder="Enter Gender">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Date of Birth</label>
+            <input type="text"
+                   class="form-control"
+                   name="DateBirth"
+                   [(ngModel)]="employee.DateBirth">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Employee ID</label>
+            <input class="form-control"
+                   name="EmployeeID"
+                   [(ngModel)]="employee.EmployeeID"
+                   placeholder="Enter Employee ID"  [disabled]="true">
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Employment Details -->
+
+    <h5 class="mb-3"><strong>Employment Details</strong></h5>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label>Designation</label>
+            <input class="form-control"
+                   name="Designation"
+                   placeholder="Enter Designation"
+                   [(ngModel)]="employee.Designation">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Department</label>
+            <input class="form-control"
+                   name="Department"
+                    placeholder="Enter Department"
+                   [(ngModel)]="employee.Department">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Manager</label>
+            <input class="form-control"
+                   name="Manager"
+                    placeholder="Enter Manager"
+                   [(ngModel)]="employee.Manager">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Employment Type</label>
+
+            <select class="form-select"
+                    name="EmploymentType"
+                      placeholder=" select Employee type"
+                    [(ngModel)]="employee.EmploymentType">
+
+                <option value="">Select</option>
+                <option>Fulltime</option>
+                <option>Contract</option>
+                <option>Freelancer</option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Location</label>
+            <input class="form-control"
+                   name="Location"
+                     placeholder="Enter Location"
+                   [(ngModel)]="employee.Location">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Joining Date</label>
+            <input type="text"
+                   class="form-control"
+                   name="JoiningDate"
+                    placeholder="Enter Joining Date"
+                   [(ngModel)]="employee.JoiningDate">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Salary</label>
+            <input class="form-control"
+                   name="Salary"
+                    placeholder="Enter Salary"
+                   [(ngModel)]="employee.Salary">
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Documents -->
+
+    <h5 class="mb-3"><strong>Employee Documents</strong></h5>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label>Resume</label>
+            <input class="form-control"
+                   name="Resume"
+                   placeholder=" Upload Resume"
+                   [(ngModel)]="employee.Resume">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Aadhar</label>
+            <input class="form-control"
+                   name="Aadhar"
+                   placeholder=" Upload Aadhar"
+                   [(ngModel)]="employee.Aadhar">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>PAN</label>
+            <input class="form-control"
+                   name="PAN"
+                   placeholder=" Upload PAN"
+                   [(ngModel)]="employee.PAN">
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Additional Details -->
+
+    <h5 class="mb-3"><strong>Additional Details</strong></h5>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <label>Address</label>
+            <input class="form-control"
+                   name="Address"
+                   placeholder="Enter Address"
+                   [(ngModel)]="employee.Address">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label>HR Remarks</label>
+            <textarea rows="3"
+                      class="form-control"
+                      name="HRRemarks"
+                      placeholder="Enter Hr Remarks"
+                      [(ngModel)]="employee.HRRemarks"></textarea>
+        </div>
+
+    </div>
+
+    <div class="text-end mt-4">
+
+        <button class="btn btn-secondary me-2"
+                type="reset">
+            Reset
+        </button>
+
+        <button class="btn btn-primary"
+                type="submit"
+                (click)="saveEmployee()">
+            Submit
+        </button>
+
+    </div>
+
+</form>

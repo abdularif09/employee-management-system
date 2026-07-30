@@ -1,0 +1,35 @@
+    <div class="container" style="width: 40%;">
+        <div class="mb-3" style="height: 45vh">
+           <img src="././candidate_onboarding.jpg" style="height: 80hv;width: 100%;">
+         </div>
+         
+          <div class="mb-3" style="background-color: #1565C0;display:flex;justify-content:center;align-items:center;">
+            <span style="font-weight: 700;color: white;font-size: 18px" > Employee Onboarding Workflow Platform </span>
+          </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">User Id</label>
+            <input type="text" class="form-control" id="usename" placeholder="Enter username" [(ngModel)]="username">
+        </div>
+                    
+        <div class="mb-3">
+            <label for="Password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="Password" rows="3"  placeholder="Enter password" [(ngModel)]="password">
+        </div>
+        
+        <div class="mb-3" align="right">
+            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal" (click)="reset()">Reset</button>
+            <button type="button" class="btn btn-primary me-2" (click)="onSubmit()">Login</button>
+        </div>
+    </div>
+
+    <div class="mb-3" align="center">
+        <div *ngIf="loginSucces">
+            <span style="color: red;display:inline-block;width:40%" class="alert alert-danger mt-3;"> Login Failure,  Invalid username or password. </span>
+        </div>  
+        <div class="copyright">© 2026 Spring Boot • Angular • Camunda BPM  • Version -1 </div>
+    </div>
+
+    
+
+   

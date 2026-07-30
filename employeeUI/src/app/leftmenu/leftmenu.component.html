@@ -1,0 +1,30 @@
+<div class="container-fluid p-3">
+  <div class="row">
+
+    <!-- Left Side - Groups -->
+    <div class="col-md-3">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="text-center">Groups</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let taskGroup of group">
+            <td>
+            <a [routerLink]="['/dashboard/menu/taskList', taskGroup?.id]"  (click)="loadTasks()">
+                    {{ taskGroup?.persistentState.name }}
+            </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Right Side - Content -->
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+</div>

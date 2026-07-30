@@ -1,0 +1,39 @@
+
+    
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr><th colspan="7" style="text-align: center;"> Employee Onboarding Tasks</th></tr>
+            <tr><th colspan="7" style="text-align: left;">Group Name : {{groupId}}</th></tr>
+            <tr>
+               
+                <th>Employee Id</th>
+                <th>Designation</th>
+                <th>Employee Name</th>
+                <th>Mobile</th>
+                <th>Assigned To</th>
+                <th>Created Date</th>
+                <th></th>
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+               
+                <td><a  [routerLink]="['/dashboard','task', task.taskId]" >{{task?.employeeId}}</a></td>
+                <td>{{task?.designation}}</td>
+                <td>{{task?.employeeName}}</td>
+                <td>{{task?.mobileNumber}}</td>
+                <td>{{task.assignee}}</td>
+                <td>{{task.createTime | date:'dd-MM-yyyy'}}</td>
+                <td>
+                    <button id="claim" name="name"  (click)="claim(task,'unclaim')" type="button" class="btn btn-primary me-2">Un Claim</button>
+                    <button id="claim" name="name"  (click)="claim(task,'claim')" type="button" class="btn btn-primary  me-2">Claim</button>
+                </td>
+                        
+            </tr>
+        </tbody>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+

@@ -6,7 +6,7 @@
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_0jxh2ff" sourceRef="Event_1219tra" targetRef="userInitaitionFormId" />
     <bpmn:sequenceFlow id="Flow_1h8v4zn" sourceRef="userInitaitionFormId" targetRef="Gateway_0f7tc1e" />
-    <bpmn:userTask id="userInitaitionFormId" name="Hr Reviewer task">
+    <bpmn:userTask id="userInitaitionFormId" name="Hr Reviewer task" camunda:candidateGroups="hrreviewer">
       <bpmn:extensionElements>
         <camunda:taskListener class="org.camunda.Listners.EmployeeTaskListners" event="complete" id="HrReviewerTaskCompleteEventType" />
       </bpmn:extensionElements>
@@ -25,7 +25,7 @@
     <bpmn:sequenceFlow id="Flow_1ymtx4g" sourceRef="InterviewerDecisionExclusivegatewayId" targetRef="Activity_0lm62eb">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${status=='Approve'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_0lm62eb" name="Manager Reviewer Task">
+    <bpmn:userTask id="Activity_0lm62eb" name="Manager Reviewer Task" camunda:candidateGroups="manager">
       <bpmn:extensionElements>
         <camunda:taskListener class="org.camunda.Listners.EmployeeTaskListners" event="complete" id="managerreviewerTaskId" />
       </bpmn:extensionElements>
@@ -40,14 +40,14 @@
     <bpmn:sequenceFlow id="Flow_0axoroh" sourceRef="ManagerDecisionId" targetRef="Activity_1vkvgks">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${status=='Approve'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_1vkvgks" name="CEO Task">
+    <bpmn:userTask id="Activity_1vkvgks" name="CEO Task" camunda:candidateGroups="ceo">
       <bpmn:extensionElements>
         <camunda:taskListener class="org.camunda.Listners.EmployeeTaskListners" event="complete" id="CEOTaskListnerId" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_0axoroh</bpmn:incoming>
       <bpmn:outgoing>Flow_00xtsi2</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:exclusiveGateway id="Gateway_1ro8knt" name="ceotask">
+    <bpmn:exclusiveGateway id="Gateway_1ro8knt" name="ceotask" default="Flow_0nnik42">
       <bpmn:incoming>Flow_00xtsi2</bpmn:incoming>
       <bpmn:outgoing>Flow_0nnik42</bpmn:outgoing>
       <bpmn:outgoing>Flow_12zit8w</bpmn:outgoing>
@@ -56,9 +56,7 @@
     <bpmn:endEvent id="Event_1u25soc">
       <bpmn:incoming>Flow_0nnik42</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_0nnik42" sourceRef="Gateway_1ro8knt" targetRef="Event_1u25soc">
-      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${status=='Approve'}</bpmn:conditionExpression>
-    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0nnik42" sourceRef="Gateway_1ro8knt" targetRef="Event_1u25soc" />
     <bpmn:sequenceFlow id="Flow_19mm4jv" sourceRef="InterviewerDecisionExclusivegatewayId" targetRef="userInitaitionFormId">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${status=='Reject'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
@@ -83,13 +81,18 @@
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${status=='Reject'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:sequenceFlow id="Flow_1iv7np4" sourceRef="Activity_0lm62eb" targetRef="ManagerDecisionId" />
-    <bpmn:userTask id="Activity_1ox0yb2" name="Interview Reviewer Task">
+    <bpmn:userTask id="Activity_1ox0yb2" name="Interview Reviewer Task" camunda:candidateGroups="interviewer">
       <bpmn:extensionElements>
         <camunda:taskListener class="org.camunda.Listners.EmployeeTaskListners" event="complete" id="InterviewReviewerTaskId" />
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_1j7o744</bpmn:incoming>
       <bpmn:outgoing>Flow_199wk2k</bpmn:outgoing>
     </bpmn:userTask>
+    <bpmn:boundaryEvent id="Event_0srios4" attachedToRef="Activity_1vkvgks">
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0aruyuy">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">PT30S</bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:boundaryEvent>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="exclusiveorgatewayId">
@@ -135,6 +138,9 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_002nxlj_di" bpmnElement="Activity_1ox0yb2">
         <dc:Bounds x="550" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0pun6pd_di" bpmnElement="Event_0srios4">
+        <dc:Bounds x="422" y="492" width="36" height="36" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1j7o744_di" bpmnElement="Flow_1j7o744">
         <di:waypoint x="505" y="210" />

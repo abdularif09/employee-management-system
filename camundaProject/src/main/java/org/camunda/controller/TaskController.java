@@ -2,6 +2,7 @@ package org.camunda.controller;
 
 import org.camunda.DTO.DTOTask;
 import org.camunda.DTO.DTOTaskComplete;
+import org.camunda.bpm.engine.identity.Group;
 import org.camunda.bpm.engine.task.Task;
 import org.camunda.entity.Employee;
 import org.camunda.service.TaskListService;
@@ -37,5 +38,16 @@ public class TaskController {
     public ResponseEntity<String> claimTaskByUserId(@PathVariable String taskId, @PathVariable String userId){
         taskListService.claimTaskByUser(taskId,userId);
         return ResponseEntity.ok("Task claimed successfully");
+    }
+
+
+    @GetMapping("/group/{groupId}")
+    public List<DTOTask> getTaskByByGroupId(@PathVariable String groupId){
+        return taskListService.getTaskListByGroups(groupId);
+    }
+
+    @GetMapping("/group/all")
+    public List<Group> getAllGroups(){
+        return taskListService.getAllGroups();
     }
 }

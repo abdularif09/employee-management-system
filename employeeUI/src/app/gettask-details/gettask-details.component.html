@@ -1,0 +1,270 @@
+<form style="width:100%">
+<div class="container-fluid padding-left:20px ">
+    <div class="">
+        <div class=" ">
+            <h3><strong>View Employee Onboarding</strong></h3>
+            <hr>
+        </div>
+        <!-- Employee Information -->
+        <h4>
+            <strong>Employee Information</strong>  
+            <div align="right" class=""> 
+                <button type="button"  class="btn btn-link" (click)="getHistory()" data-bs-toggle="modal" data-bs-target="#exampleModal">History</button> 
+            </div>
+        </h4>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <label>Employee Name</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.ename"
+                   name="ename"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Email</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Email"
+                   name="Email"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Mobile Number</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.MobileNumber"
+                   name="MobileNumber"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Gender</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Gender"
+                   name="Gender"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Date of Birth</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.DateBirth"
+                   name="DateBirth"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Employee ID</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.EmployeeID"
+                   name="EmployeeID"
+                   [disabled]="isDisabled">
+        </div>
+
+    </div>
+
+    <!-- Employment Details -->
+
+    <h4 class="mt-4"><strong>Employment Details</strong></h4>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label>Designation</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Designation"
+                   name="Designation"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Department</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Department"
+                   name="Department"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Manager</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Manager"
+                   name="Manager"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Employment Type</label>
+
+            <select class="form-select"
+                    [(ngModel)]="employee.EmploymentType"
+                    name="EmploymentType"
+                    [disabled]="isDisabled">
+
+                <option>Select</option>
+                <option>Full Time</option>
+                <option>Contract</option>
+                <option>Freelancer</option>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Location</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Location"
+                   name="Location"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Joining Date</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.JoiningDate"
+                   name="JoiningDate"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Salary</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Salary"
+                   name="Salary"
+                   [disabled]="isDisabled">
+        </div>
+
+    </div>
+
+    <!-- Employee Documents -->
+
+    <h4 class="mt-4"><strong>Employee Documents</strong></h4>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-3">
+            <label>Resume</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Resume"
+                   name="Resume"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>Aadhar</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Aadhar"
+                   name="Aadhar"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <label>PAN</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.PAN"
+                   name="PAN"
+                   [disabled]="isDisabled">
+        </div>
+
+    </div>
+
+    <!-- Additional Details -->
+
+    <h4 class="mt-4"><strong>Additional Details</strong></h4>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-6 mb-3">
+            <label>Address</label>
+            <input class="form-control"
+                   [(ngModel)]="employee.Address"
+                   name="Address"
+                   [disabled]="isDisabled">
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <label>Remarks</label>
+            <textarea rows="3"
+                      class="form-control"
+                      [(ngModel)]="employee.HRRemarks"
+                      name="HRRemarks"></textarea>
+        </div>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="text-end mt-4">
+
+        <button class="btn btn-info me-2"
+                [routerLink]="['/dashboard/taskList']">
+            Back
+        </button>
+
+        <button class="btn btn-danger me-2"
+                (click)="completeTask('Cancel')">
+            Reject
+        </button>
+
+        <button class="btn btn-primary"
+                (click)="completeTask('Approve')">
+            Approve
+        </button>
+
+    </div>
+
+</div>
+</form>
+
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">History</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+            <div  style="width: 100%;padding-left: 20px;"> 
+                     
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Performed By</th>
+                            <th>Completion Date</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <tr *ngFor=" let history of historyDetails">
+                                <td>{{history.task_name}}</td>
+                                <td>{{history.performed_by}}</td>
+                                <td>{{history.actionTime | date:'dd-MM-yyyy'}}</td>
+                                <td>{{history.new_status}}</td>
+                                <td>{{history.remarks}}</td>
+                            </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <!-->
+        <button type="button" class="btn btn-primary">Save changes</button>-->
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
