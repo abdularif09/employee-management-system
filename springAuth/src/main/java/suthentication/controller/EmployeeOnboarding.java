@@ -26,11 +26,11 @@ public class EmployeeOnboarding {
     }
 
     @PostMapping("/employeeonboarding")
-    public ResponseEntity<Employee> employeeOnboard(@RequestBody Employee empRequest,) {
+    public ResponseEntity<Employee> employeeOnboard(@RequestBody Employee empRequest) {
         System.out.println("before save in employee Onboarding");
         Employee employee = employeeService.saveEmployee(empRequest);
         System.out.println("after save in employee Onboarding");
-
+        //String businessKey = (String) requestBody.get("businessKey");
         camundaService.startCamundaProcess(employee);
         return ResponseEntity.ok(employee);
     }
